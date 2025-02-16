@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Office Help Desk</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+        <div class="logo">
+        <!-- You can replace this with your actual logo image -->
+            <img src="USTP LOGO HD.png" alt="Registrar Office Logo">
+        </div>
+        <div class="school-name">
+            <h1>University of Science and Technology<h1/>
+            <h2>of Southern Philippines</h2> 
+        </div>
+</header>
+    
+    <main>
+        <div class="form-container">
+            <h3>Help Desk Form</h3>
+            <form action="#" method="POST">
+                <label for="id-no">ID No</label>
+                <input type="text" id="id-no" name="id-no" required>
+
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="issue-description">Issue Description</label>
+                <textarea id="issue-description" name="issue-description" rows="4" required></textarea>
+
+                <label for="query-type">Query Type</label>
+                <select id="query-type" name="query-type" required>
+                    <option value="admission">Admission</option>
+                    <option value="request-credentials">Request Credentials</option>
+                    <option value="others">Others</option>
+                </select>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <section class="contact-info">
+        <h3>Contact Information</h3>
+        <p><strong>Registrar's Office:</strong> Mobod, Oroquieta City</p>
+        <p><strong>Phone:</strong> (123) 456-7890</p>
+        <p><strong>Email:</strong> registrar@school.edu</p>
+        <p><strong>Office Hours:</strong> Mon-Fri, 8:00 AM - 5:00 PM</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Registrar Office. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
