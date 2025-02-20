@@ -20,7 +20,7 @@
         </ul>
     </nav>
 
-    <header>
+    <header class="header-background">
         <div class="school-name">
             <h1>University of Science and Technology<h1/>
             <h2>of Southern Philippines</h2> 
@@ -43,25 +43,104 @@
                 <label for="issue-description">Issue Description</label>
                 <textarea id="issue-description" name="issue-description" rows="4" required></textarea>
 
-                <label for="query-type">Query Type</label>
-                <select id="query-type" name="query-type" required>
-                    <option value="admission">Admission</option>
-                    <option value="request-credentials">Request Credentials</option>
-                    <option value="others">Others</option>
-                </select>
+              <label for="query-type">Query Type</label>
+<select id="query-type" name="query-type" required>
+    <option value="Enrollment">Enrollment</option>
+    <option value="request-credentials">Request Credentials</option>
+    <option value="others">Others</option>
+</select>
+
+<div id="credentials-options-container" style="display: none;">
+    <div id="credentials-options">
+        <input type="checkbox" name="credentials" value="tor">
+        <div class="boxNI">TOR</div>
+    </div>
+    <br>
+
+    <div id="credentials-options">
+        <input type="checkbox" name="credentials" value="certificate">
+        <div class="boxNI">Certificate of Grades</div>
+    </div>
+    <br>
+
+    <div id="credentials-options">
+        <input type="checkbox" name="credentials" value="others-credential">
+        <div class="boxNI">Others</div>
+    </div>
+    <br>
+
+    <div id="other-description" class="hidden">
+        <label for="other-description-text">Please specify:</label>
+        <textarea id="other-description-text" name="other-description-text" rows="4"></textarea>
+    </div>
+</div>
+
+<script>
+    // Get the dropdown and credentials options container
+    const queryTypeSelect = document.getElementById("query-type");
+    const credentialsContainer = document.getElementById("credentials-options-container");
+    const otherDescription = document.getElementById("other-description");
+
+    // Event listener for change in dropdown
+    queryTypeSelect.addEventListener("change", function() {
+        if (this.value === "request-credentials") {
+            credentialsContainer.style.display = "block";
+        } else {
+            credentialsContainer.style.display = "none";
+            otherDescription.classList.add("hidden"); // Hide the other description if not selected
+        }
+    });
+
+    // Show other description if 'Others' is selected in credentials
+    const checkboxes = document.querySelectorAll("input[name='credentials']");
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", function() {
+            if (this.value === "others-credential" && this.checked) {
+                otherDescription.classList.remove("hidden");
+            } else {
+                otherDescription.classList.add("hidden");
+            }
+        });
+    });
+</script>
+
 
                 <button type="submit">Submit</button>
             </form>
         </div>
     </main>
 
+    <script>
+    // Get the select element and options
+    const queryTypeSelect = document.getElementById("query-type");
+    const credentialsOptions = document.getElementById("credentials-options");
+    const otherDescription = document.getElementById("other-description");
+
+    // Add an event listener to detect changes in the select dropdown
+    queryTypeSelect.addEventListener("change", function() {
+        const selectedValue = queryTypeSelect.value;
+
+        // Hide all options first
+        credentialsOptions.classList.add("hidden");
+        otherDescription.classList.add("hidden");
+
+        // Show the appropriate option based on selection
+        if (selectedValue === "request-credentials") {
+            credentialsOptions.classList.remove("hidden");
+        } else if (selectedValue === "others") {
+            otherDescription.classList.remove("hidden");
+        }
+    });
+</script>
+
+
         <!-- Slideshow Section -->
     <section class="slideshow-container">
-        <div class="slideshow">
-            <div class="slide"><img src="vision.jfif" alt="Slide 1"></div>
-            <div class="slide"><img src="mission.jfif" alt="Slide 2"></div>
-            <div class="slide"><img src="image3.jpg" alt="Slide 3"></div>
+       <center> <div class="slideshow">
+            <div class="slide"><img src="vision.png" alt="Vision"></div>
+            <div class="slide"><img src="mission.png" alt="Mission"></div>
         </div>
+        </center>
     </section>
 
 
